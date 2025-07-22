@@ -3,18 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
     <link rel="stylesheet" href="style.css" />
-
     <title>Frontend Mentor | E-commerce product page</title>
-    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="header">
@@ -33,13 +24,13 @@
         <div class="cart-icon" id="cartIcon">
           <div class="cart-badge" id="cartBadge">0</div>
         </div>
-        <div class="profile-pic">JD</div>
+        <div class="profile-pic" aria-label="User Profile">JD</div>
       </div>
     </header>
 
     <main class="container">
-      <div class="product-images">
-        <div class="main-image" id="mainImage">
+      <section class="product-images">
+        <div class="main-image" id="mainImage" role="img" aria-label="Product image">
           <div class="sneaker-image"></div>
         </div>
         <div class="thumbnails">
@@ -48,9 +39,9 @@
           <div class="thumbnail thumb3" data-image="3"></div>
           <div class="thumbnail thumb4" data-image="4"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="product-details">
+      <section class="product-details">
         <div class="brand">Sneaker Company</div>
         <h1 class="product-title">Fall Limited Edition Sneakers</h1>
         <p class="description">
@@ -69,40 +60,35 @@
 
         <div class="purchase-section">
           <div class="quantity-control">
-            <button class="qty-btn" id="decreaseBtn">−</button>
+            <button class="qty-btn" id="decreaseBtn" aria-label="Decrease quantity">−</button>
             <span class="quantity" id="quantity">0</span>
-            <button class="qty-btn" id="increaseBtn">+</button>
+            <button class="qty-btn" id="increaseBtn" aria-label="Increase quantity">+</button>
           </div>
-          <button class="add-to-cart" id="addToCartBtn">
-
+          <button class="add-to-cart" id="addToCartBtn" aria-label="Add to cart">
             Add to cart
           </button>
         </div>
-      </div>
+      </section>
     </main>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-overlay" id="cartOverlay">
+    <aside class="cart-overlay" id="cartOverlay">
       <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
+        <header class="cart-header">
           <h2 class="cart-title">Cart</h2>
-        </div>
+        </header>
         <div class="cart-content" id="cartContent">
           <div class="cart-empty" id="cartEmpty">Your cart is empty.</div>
           <div id="cartItems" style="display: none"></div>
-          <button class="checkout-btn" id="checkoutBtn" style="display: none">
-            Checkout
-          </button>
+          <button class="checkout-btn" id="checkoutBtn" style="display: none">Checkout</button>
         </div>
       </div>
-    </div>
+    </aside>
 
-    <!-- Image Lightbox -->
-    <div class="lightbox-overlay" id="lightboxOverlay">
+    <section class="lightbox-overlay" id="lightboxOverlay" aria-modal="true" role="dialog">
       <div class="lightbox-content">
-        <button class="lightbox-close" id="lightboxClose">×</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
         <div class="lightbox-image" id="lightboxImage">
           <div class="lightbox-sneaker"></div>
         </div>
@@ -113,9 +99,8 @@
           <div class="lightbox-thumb thumb4" data-image="4"></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+     <script src="script.js"></script>
   </body>
-  <script src="script.js"></script>
 </html>
