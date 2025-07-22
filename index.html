@@ -1,44 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | E-commerce product page</title>
-  <link rel="stylesheet" href="./styles.css">
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="mobile-nav">☰</div>
+      <div class="logo">sneakers</div>
+      <nav>
+        <ul class="nav">
+          <li><a href="#">Collections</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#" class="active">Women</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="cart-icon" id="cartIcon">
+          <div class="cart-badge" id="cartBadge">0</div>
+        </div>
+        <div class="profile-pic">JD</div>
+      </div>
+    </header>
 
-  Sneaker Company
+    <main class="container">
+      <div class="product-images">
+        <div class="main-image" id="mainImage">
+          <div class="sneaker-image"></div>
+        </div>
+        <div class="thumbnails">
+          <div class="thumbnail thumb1 active" data-image="1"></div>
+          <div class="thumbnail thumb2" data-image="2"></div>
+          <div class="thumbnail thumb3" data-image="3"></div>
+          <div class="thumbnail thumb4" data-image="4"></div>
+        </div>
+      </div>
 
-  Fall Limited Edition Sneakers
+      <div class="product-details">
+        <div class="brand">Sneaker Company</div>
+        <h1 class="product-title">Fall Limited Edition Sneakers</h1>
+        <p class="description">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
 
-  These low-profile sneakers are your perfect casual wear companion. Featuring a 
-  durable rubber outer sole, they’ll withstand everything the weather can offer.
+        <div class="price-section">
+          <div class="price-row">
+            <span class="current-price">$125.00</span>
+            <span class="discount">50%</span>
+          </div>
+          <div class="original-price">$250.00</div>
+        </div>
 
-  $125.00
-  50%
-  $250.00
+        <div class="purchase-section">
+          <div class="quantity-control">
+            <button class="qty-btn" id="decreaseBtn">−</button>
+            <span class="quantity" id="quantity">0</span>
+            <button class="qty-btn" id="increaseBtn">+</button>
+          </div>
+          <button class="add-to-cart" id="addToCartBtn">
 
-  0
-  Add to cart
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
-<script src="script.js"></script>
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+          <h2 class="cart-title">Cart</h2>
+        </div>
+        <div class="cart-content" id="cartContent">
+          <div class="cart-empty" id="cartEmpty">Your cart is empty.</div>
+          <div id="cartItems" style="display: none"></div>
+          <button class="checkout-btn" id="checkoutBtn" style="display: none">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+      <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">›</button>
+        <div class="lightbox-image" id="lightboxImage">
+          <div class="lightbox-sneaker"></div>
+        </div>
+        <div class="lightbox-thumbnails">
+          <div class="lightbox-thumb thumb1 active" data-image="1"></div>
+          <div class="lightbox-thumb thumb2" data-image="2"></div>
+          <div class="lightbox-thumb thumb3" data-image="3"></div>
+          <div class="lightbox-thumb thumb4" data-image="4"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+  <script src="script.js"></script>
 </html>
