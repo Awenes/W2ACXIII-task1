@@ -146,6 +146,14 @@ ul {
   border: 2px solid hsl(26, 100%, 55%);
 }
 
+.thumbnail img,
+.lightbox-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 /* === Product Details === */
 .product-details {
   display: flex;
