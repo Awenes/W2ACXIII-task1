@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Frontend Mentor | E-commerce product page</title>
   </head>
   <body>
     <header class="header">
       <!-- <div class="mobile-nav">☰</div> -->
-      <div class="logo">sneakers</div>
+      <div class="logo"><a href="index.html">sneakers</a></div>
       <nav>
         <ul class="nav">
-          <li><a href="/collections.html">Collections</a></li>
-          <li><a href="/men.html">Men</a></li>
-          <li><a href="/index.html" class="active">Women</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="men.html">Men</a></li>
+          <li><a href="index.html" class="active">Women</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -30,14 +35,35 @@
 
     <main class="container">
       <section class="product-images">
-        <div class="main-image" id="mainImage" role="img" aria-label="Product image">
-          <div class="sneaker-image"></div>
+        <!-- Inside .product-images -->
+        <div
+          class="main-image"
+          id="mainImage"
+          role="img"
+          aria-label="Product image"
+        >
+          <img
+            src="./images/image-product-1.jpg"
+            id="mainImageTag"
+            alt="Product image"
+          />
         </div>
         <div class="thumbnails">
-          <div class="thumbnail active" data-image="1"><img src="./images/image-product-1-thumbnail.jpg" alt=""></div>
-          <div class="thumbnail" data-image="2"><img src="./images/image-product-2-thumbnail.jpg" alt=""></div>
-          <div class="thumbnail" data-image="3"><img src="./images/image-product-3-thumbnail.jpg" alt=""></div>
-          <div class="thumbnail" data-image="4"><img src="./images/image-product-4-thumbnail.jpg" alt=""></div>
+          <div
+            class="thumbnail active"
+            data-image="./images/image-product-1.jpg"
+          >
+            <img src="./images/image-product-1-thumbnail.jpg" alt="" />
+          </div>
+          <div class="thumbnail" data-image="./images/image-product-2.jpg">
+            <img src="./images/image-product-2-thumbnail.jpg" alt="" />
+          </div>
+          <div class="thumbnail" data-image="./images/image-product-3.jpg">
+            <img src="./images/image-product-3-thumbnail.jpg" alt="" />
+          </div>
+          <div class="thumbnail" data-image="./images/image-product-4.jpg">
+            <img src="./images/image-product-4-thumbnail.jpg" alt="" />
+          </div>
         </div>
       </section>
 
@@ -60,11 +86,27 @@
 
         <div class="purchase-section">
           <div class="quantity-control">
-            <button class="qty-btn" id="decreaseBtn" aria-label="Decrease quantity">−</button>
+            <button
+              class="qty-btn"
+              id="decreaseBtn"
+              aria-label="Decrease quantity"
+            >
+              −
+            </button>
             <span class="quantity" id="quantity">0</span>
-            <button class="qty-btn" id="increaseBtn" aria-label="Increase quantity">+</button>
+            <button
+              class="qty-btn"
+              id="increaseBtn"
+              aria-label="Increase quantity"
+            >
+              +
+            </button>
           </div>
-          <button class="add-to-cart" id="addToCartBtn" aria-label="Add to cart">
+          <button
+            class="add-to-cart"
+            id="addToCartBtn"
+            aria-label="Add to cart"
+          >
             Add to cart
           </button>
         </div>
@@ -79,16 +121,41 @@
         <div class="cart-content" id="cartContent">
           <div class="cart-empty" id="cartEmpty">Your cart is empty.</div>
           <div id="cartItems" style="display: none"></div>
-          <button class="checkout-btn" id="checkoutBtn" style="display: none">Checkout</button>
+          <button class="checkout-btn" id="checkoutBtn" style="display: none">
+            Checkout
+          </button>
         </div>
       </div>
     </aside>
 
-    <section class="lightbox-overlay" id="lightboxOverlay" aria-modal="true" role="dialog">
+    <section
+      class="lightbox-overlay"
+      id="lightboxOverlay"
+      aria-modal="true"
+      role="dialog"
+    >
       <div class="lightbox-content">
-        <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">×</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image">‹</button>
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image">›</button>
+        <button
+          class="lightbox-close"
+          id="lightboxClose"
+          aria-label="Close lightbox"
+        >
+          ×
+        </button>
+        <button
+          class="lightbox-nav lightbox-prev"
+          id="lightboxPrev"
+          aria-label="Previous image"
+        >
+          ‹
+        </button>
+        <button
+          class="lightbox-nav lightbox-next"
+          id="lightboxNext"
+          aria-label="Next image"
+        >
+          ›
+        </button>
         <div class="lightbox-image" id="lightboxImage">
           <div class="lightbox-sneaker"></div>
         </div>
@@ -101,6 +168,6 @@
       </div>
     </section>
 
-     <script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

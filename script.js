@@ -1,17 +1,15 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
-    "./images/image-product-1-thumbnail.jpg",
-    "./images/image-product-2-thumbnail.jpg",
-    "./images/image-product-3-thumbnail.jpg",
-    "./images/image-product-4-thumbnail.jpg",
+    "./images/image-product-1.jpg",
+    "./images/image-product-2.jpg",
+    "./images/image-product-3.jpg",
+    "./images/image-product-4.jpg",
   ];
 
   let currentImageIndex = 0;
   let cartQuantity = 0;
 
-  const mainImage = document.getElementById("mainImage");
+  const mainImageTag = document.getElementById("mainImageTag");
   const thumbnails = document.querySelectorAll(".thumbnail");
   const lightboxOverlay = document.getElementById("lightboxOverlay");
   const lightboxClose = document.getElementById("lightboxClose");
@@ -23,11 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const cartSidebar = document.getElementById("cartSidebar");
   const cartIcon = document.getElementById("cartIcon");
   const cartBadge = document.getElementById("cartBadge");
-  const cartContent = document.getElementById("cartContent");
   const cartItems = document.getElementById("cartItems");
   const cartEmpty = document.getElementById("cartEmpty");
   const checkoutBtn = document.getElementById("checkoutBtn");
-
   const increaseBtn = document.getElementById("increaseBtn");
   const decreaseBtn = document.getElementById("decreaseBtn");
   const quantityDisplay = document.getElementById("quantity");
@@ -35,23 +31,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateMainImage(index) {
     currentImageIndex = index;
-    mainImage.style.backgroundImage = `url(./${images[index]})`;
-    lightboxImage.style.backgroundImage = `url(./${images[index]})`;
+    const fullImage = images[index];
+    mainImageTag.src = fullImage;
+    lightboxImage.style.backgroundImage = `url(${fullImage})`;
 
-    thumbnails.forEach((thumb) => thumb.classList.remove("active"));
-    thumbnails[index].classList.add("active");
+    thumbnails.forEach((thumb, i) => {
+      i === index
+        ? thumb.classList.add("active")
+        : thumb.classList.remove("active");
+    });
 
-    lightboxThumbs.forEach((thumb) => thumb.classList.remove("active"));
-    lightboxThumbs[index].classList.add("active");
+    lightboxThumbs.forEach((thumb, i) => {
+      i === index
+        ? thumb.classList.add("active")
+        : thumb.classList.remove("active");
+    });
   }
 
-  thumbnails.forEach((thumb) => {
-    thumb.addEventListener("click", () => {
-      const index = parseInt(thumb.getAttribute("data-image")) - 1;
-      updateMainImage(index);
-    });
+  // Thumbnail click
+  thumbnails.forEach((thumb, i) => {
+    thumb.addEventListener("click", () => updateMainImage(i));
   });
 
+  // Lightbox thumbnail click
   lightboxThumbs.forEach((thumb) => {
     thumb.addEventListener("click", () => {
       const index = parseInt(thumb.getAttribute("data-image")) - 1;
@@ -59,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  mainImage.addEventListener("click", () => {
+  // Lightbox toggle
+  mainImageTag.addEventListener("click", () => {
     lightboxOverlay.style.display = "flex";
   });
 
@@ -77,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateMainImage(index);
   });
 
+  // Quantity controls
   increaseBtn.addEventListener("click", () => {
     let quantity = parseInt(quantityDisplay.textContent);
     quantity++;
@@ -89,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     quantityDisplay.textContent = quantity;
   });
 
+  // Add to Cart
   addToCartBtn.addEventListener("click", () => {
     const addedQty = parseInt(quantityDisplay.textContent);
     if (addedQty > 0) {
@@ -114,14 +119,28 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Show/Hide Cart
   cartIcon.addEventListener("click", () => {
     cartOverlay.classList.toggle("active");
   });
 
+  // Dismiss cart when clicking outside
+  document.addEventListener("click", (e) => {
+    if (
+      !cartSidebar.contains(e.target) &&
+      !cartIcon.contains(e.target) &&
+      cartOverlay.classList.contains("active")
+    ) {
+      cartOverlay.classList.remove("active");
+    }
+  });
+
+  // Checkout
   checkoutBtn.addEventListener("click", () => {
     alert(`Proceeding to checkout with ${cartQuantity} item(s) in cart.`);
   });
 
+  // Remove item
   cartItems.addEventListener("click", (e) => {
     if (e.target.classList.contains("remove-item")) {
       cartQuantity = 0;
@@ -132,13 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document.addEventListener("click", (e) => {
-    if (!cartSidebar.contains(e.target) && !cartIcon.contains(e.target)) {
-      cartOverlay.classList.remove("active");
-    }
-  });
-
-
-  // Initial image
+  // Init
   updateMainImage(0);
 });
