@@ -113,7 +113,7 @@ button {
 }
 
 .product-images {
-  flex: 1 1 50%;
+  flex: 1 1 40%;
 }
 
 .product-details {
@@ -127,6 +127,14 @@ button {
   background-color: hsl(223, 64%, 98%);
   border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 10px;
+}
+
+main-image img,
+.lightbox-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .sneaker-image,
