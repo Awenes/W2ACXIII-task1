@@ -154,3 +154,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Init
   updateMainImage(0);
 });
+
+// When lightbox opens
+document.getElementById("lightboxOverlay").style.display = "flex";
+document.body.classList.add("lightbox-open");
+
+// When lightbox closes
+document.getElementById("lightboxOverlay").style.display = "none";
+document.body.classList.remove("lightbox-open");
+

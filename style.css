@@ -6,11 +6,10 @@
 }
 
 body {
-  font-family: 'Kumbh Sans', sans-serif;
-  font-size: 16px;
-  color: hsl(220, 13%, 13%);
-  background-color: hsl(0, 0%, 100%);
-  line-height: 1.6;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #fff;
+  overflow-x: hidden;
 }
 
 a {
@@ -22,6 +21,17 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
 /* === Layout === */
 .header {
   display: flex;
@@ -31,9 +41,10 @@ ul {
   border-bottom: 1px solid hsl(223, 64%, 98%);
 }
 
-.logo {
-  font-weight: 700;
+.logo a {
+  font-weight: bold;
   font-size: 1.5rem;
+  color: #000;
 }
 
 .nav {
@@ -93,22 +104,25 @@ ul {
 
 /* === Product Container === */
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 .product-images {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex: 1 1 50%;
+}
+
+.product-details {
+  flex: 1 1 40%;
 }
 
 .main-image,
 .lightbox-image {
   width: 100%;
-  padding-top: 100%;
   position: relative;
   background-color: hsl(223, 64%, 98%);
   border-radius: 10px;
@@ -298,14 +312,24 @@ ul {
 }
 
 /* === Lightbox === */
+/* Lightbox Overlay */
 .lightbox-overlay {
   position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
   display: none;
-  align-items: center;
   justify-content: center;
-  z-index: 1001;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Ensure this is added when lightbox is opened */
+body.lightbox-open {
+  overflow: hidden;
 }
 
 .lightbox-content {
