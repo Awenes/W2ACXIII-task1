@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  function clearCart() {
+    cartQuantity = 0;
+    cartBadge.textContent = "0";
+    cartItems.style.display = "none";
+    cartEmpty.style.display = "block";
+    checkoutBtn.style.display = "none";
+  }
+
+
   const images = [
     "./images/image-product-1.jpg",
     "./images/image-product-2.jpg",
@@ -150,6 +160,35 @@ document.addEventListener("DOMContentLoaded", function () {
       checkoutBtn.style.display = "none";
     }
   });
+
+cartItems.addEventListener("click", (e) => {
+  if (e.target.classList.contains("remove-one-item")) {
+    if (cartQuantity > 1) {
+      cartQuantity--;
+      cartBadge.textContent = cartQuantity;
+
+      cartItems.innerHTML = `
+        <div class="cart-item">
+          <div class="item-details">
+            Fall Limited Edition Sneakers<br />
+            $125.00 × ${cartQuantity} = <strong>$${125 * cartQuantity}.00</strong>
+          </div>
+          <div class="item-actions">
+            <button class="remove-one-item" aria-label="Remove one item">Remove One</button>
+            <button class="clear-cart" aria-label="Clear cart">Clear Cart</button>
+          </div>
+        </div>
+      `;
+    } else {
+      clearCart();
+    }
+  }
+
+  if (e.target.classList.contains("clear-cart")) {
+    clearCart();
+  }
+});
+
 
   // Init
   updateMainImage(0);

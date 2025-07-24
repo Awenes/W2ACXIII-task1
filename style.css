@@ -303,13 +303,28 @@ main-image img,
   margin-bottom: 1rem;
 }
 
+.remove-item {
+  margin-top: 10px;
+  padding: 1rem;
+  background: hsl(26, 100%, 55%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background: red;
+}
+
 .cart-empty {
   text-align: center;
   color: hsl(219, 9%, 45%);
 }
 
 .checkout-btn {
-  margin-top: auto;
+  margin-top: 10px;
   padding: 1rem;
   background: hsl(26, 100%, 55%);
   color: hsl(0, 0%, 100%);
